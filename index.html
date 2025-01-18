@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swetha M- Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom, #00bcd4, #4caf50); /* Iridescent blue to green gradient background */
+            height: 100vh;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(0, 76, 93, 0.9); /* Slightly darker shade of blue-green */
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 5px solid #4caf50;
+        }
+
+        header h1 {
+            font-size: 3rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 76, 93, 0.8); /* Darker shade for navigation */
+            border-bottom: 3px solid #4caf50;
+        }
+
+        nav a {
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            background: #4caf50; /* Hover effect color */
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.8); /* Light white background with slight transparency */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00796b; /* Greenish color for heading */
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills, .projects, .education {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(85, 146, 181, 0.8); /* Soft green background for skills and education */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .projects {
+            background: rgba(70, 130, 180, 0.8); /* Steel blue background for projects */
+            color: white;
+        }
+
+        .projects h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .project {
+            background: rgba(30, 60, 90, 0.8); /* Dark blue background for each project */
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem; /* Space between projects */
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .project h3 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project p {
+            color: #f1f1f1;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 1rem;
+        }
+
+        .skills-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            color: #ffffff;
+        }
+
+        .skills-category {
+            background: #00796b; /* Darker background for each skill category */
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills-category h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-decoration: underline; /* Underlining the skill category headings */
+        }
+
+        .skills-category ul {
+            list-style-type: disc; /* Adding bullet points for skills */
+            padding-left: 20px;
+        }
+
+        .skills-category ul li {
+            padding: 0.5rem 0;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .education-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: rgba(53, 50, 55, 0.9); /* Light background for education details */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-details p {
+            font-size: 1.2rem;
+            color: #f8fbfa;
+            margin: 0.5rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: rgba(0, 76, 93, 0.8); /* Darker footer section */
+            color: white;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* New styles for Family Safety Project section */
+        .family-safety {
+            background: rgba(255, 228, 225, 0.8); /* Light pinkish background for family safety */
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
+        }
+
+        .family-safety h3 {
+            font-size: 2.5rem;
+            color: #b71c1c; /* Red color for project title */
+            margin-bottom: 1rem;
+        }
+
+        .family-safety p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .family-safety img {
+            max-width: 80%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+.contact-section {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-item {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-item i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #0077b5; /* LinkedIn Blue for icons */
+}
+
+.contact-item label {
+  font-weight: bold;
+  color: #444;
+  margin-right: 5px;
+}
+
+.contact-item a {
+  color: #0077b5;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+.contact-item span {
+  color: #555;
+}
+/* Updated Family Safety Styles */
+/* Updated Family Safety Styles */
+.family-safety {
+    background: linear-gradient(to right, #415565, #4e8487); /* Bluish gradient */
+    padding: 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.family-safety h2 {
+    font-size: 30px;
+    color: #ffffff; /* White color for title */
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.family-safety p {
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 20px;
+    color: #f4f4f4; /* Light color for text */
+}
+
+.project-details li {
+    margin-bottom: 10px;
+    color: #fff; /* White text for the details list */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Reduced space between the images */
+    margin-top: 20px;
+}
+
+.image-container img {
+    width: 35%; /* Reduced image size */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+        <p><strong>Hi, I'm Swetha M, a passionate developer eager to contribute to IT innovation!</strong></p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about" class="about" style="background-color: #052038; padding: 50px 20px; text-align: center;">
+            <div class="about-container" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 40px; max-width: 1200px; margin: 0 auto;">
+                <div class="about-text" style="max-width: 600px; text-align: left; font-family: Arial, sans-serif; line-height: 1.8; word-wrap: break-word;">
+                    <h2 style="font-size: 2.5rem; color: #f2f7f8; margin-bottom: 20px;">About Me</h2>
+                    <p style="margin-bottom: 20px; text-align: justify;color: #f2f7f8; line-height: 1.6;">I am a dedicated and enthusiastic 2024 graduate with a background in Computer Science and Engineering, and I have to focus on Java Full-Stack Development. Currently, I am enhancing my skill set at Tap Academy, Bangalore, and expanding my expertise in software development and web technologies.</p>
+                    <p style="margin-bottom: 20px; text-align: justify; color: #f2f7f8;line-height: 1.6;">My academic journey has been enriched by practical experiences, including the development of Solar Power generation using by machine learning Techniques.</p>
+                    <p style="margin-bottom: 20px; text-align: justify;color: #f2f7f8; line-height: 1.6;">I take pride in my problem-solving skills, adaptability, and ability to collaborate in team environments. My goal is to contribute to impactful IT solutions while continuously learning and growing in this dynamic field.</p>
+                </div>
+                <div class="about-image" style="flex-shrink: 0;">
+                    <img src="img.jpg/image.jpeg" alt="Swetha" style="width: 450px; height: auto; border-radius: 50%; border: 5px solid #333;">
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        </section>
+
+        <section id="skills" class="skills">
+            <h2>Skills </h2>
+            <div class="skills-section">
+                <div class="skills-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Web Technologies</h3>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Databases</h3>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>Oracle</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Frameworks</h3>
+                    <ul>
+                        <li>Spring</li>
+                        <li>Hibernate</li>
+                        <li>React</li> <!-- Added React -->
+                       
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Concepts & Methodologies</h3>
+                    <ul>
+                        <li>Object-Oriented Programming (OOP)</li>
+                        <li>Problem Solving</li> <!-- Added Problem Solving -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="education" class="education">
+            <h2>Education</h2>
+            <div class="education-details">
+                <p><strong>B.E. Computer Science and Engineering</strong><br>University College of Engineering,(Anna University)BIT Campus, Tiruchirappalli, 2020-2024<br><strong>CGPA:</strong> 8.50</p>
+                <p><strong>HSC</strong><br>Sri Ayyan Vidyashram Higher Secondary School,Vellatur,Tiruvallur(Dt) 2020<br><strong>Percentage:</strong> 83%</p>
+                <p><strong>SSLC</strong><br>Gandhiji High School,Karikkal,Vellore(Dt) 2018<br><strong>Percentage:</strong> 91%</p>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Solar Power Generation Using Machine Learning</h3>
+                <p>
+                    </p>
+                <ul>
+                    <li>To use ML techniques and performance metrics R2_Score</li>
+                    <li>To aid solar panel investors by enhancing their planning for solar energy production</li>
+                </ul>
+                <p> 
+                   </p>
+                <!-- Add image for the Food Delivery Web Application project -->
+               
+            </div>
+        
+          <!-- Family Safety Project -->
+
+  
+    <div class="project">
+        <h3>Anon E-commerce Website</h3>
+        <ul>
+            <li>Development Based on HTML, CSS</li>
+            <li>Implemented the login behaviour including the Registration</li>
+            <li>Developed Modules such as Module names</li>
+            <li>Home, Categories, Mens, Womens, Jewellery, Perfume, Blog, Hot Offers</li>
+            <li>Hovering over to the modules Sub Modules will display</li>
+            <li>Logout Functionality</li>
+        </ul>
+        
+   
+</div>
+
+
+        </section>
+        
+        <footer>
+            <section class="contact-section">
+                <h2>Contact Information</h2>
+                <div class="contact-item">
+                  <i class="fab fa-linkedin"></i>
+                  <label>LinkedIn:</label>
+                  <a href="https://www.linkedin.com/in/mswetha-m" target="_blank">
+                    Swetha's LinkedIn
+                  </a>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <label>Email:</label>
+                  <a href="mailto:mswetham@gmail.com">mswetham003@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <label>Contact:</label>
+                  <span>6374438227</span>
+                </div>
+              </section>
+                    </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
